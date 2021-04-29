@@ -1,16 +1,21 @@
 package es.orquidea.hexagonal.rest.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class UserDto {
+
     private Long id;
+
+    @NotBlank(message = "Name is mandatory")
     private String name;
-    private String mail;
+
+    @NotBlank(message = "Email is mandatory")
+    @Email
+    private String email;
 }

@@ -21,6 +21,7 @@ public class UserService {
     }
 
     public User saveUser(User user) {
+        log.debug("Storing User [{}]", user);
         return userRepository.save(user);
     }
 }
