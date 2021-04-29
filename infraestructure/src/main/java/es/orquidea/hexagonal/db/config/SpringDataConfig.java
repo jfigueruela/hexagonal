@@ -20,5 +20,5 @@ import lombok.extern.slf4j.Slf4j;
 @Getter
 @Setter
 @EnableJpaAuditing
-@EntityScan(basePackages = "es.orquidea.hexagonal.db.springdata.dbo")
+@EntityScan(basePackages = "es.orquidea.hexagonal.db.dbo")
 public class SpringDataConfig {}
