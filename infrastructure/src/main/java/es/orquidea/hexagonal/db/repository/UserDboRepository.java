@@ -18,7 +18,7 @@ public class UserDboRepository implements UserRepository {
 
     @Override
     public User findById(Long id) {
-        return userMapper.toDomain(userRepository.findById(id).orElseThrow());
+        return userMapper.toDomain(userRepository.findById(id).get());
     }
 
     @Override
@@ -29,5 +29,10 @@ public class UserDboRepository implements UserRepository {
     @Override
     public User save(User user) {
         return userMapper.toDomain(userRepository.save(userMapper.toDbo(user)));
+    }
+
+    @Override
+    public void delete(User user) {
+        userRepository.delete(userMapper.toDbo(user));
     }
 }
