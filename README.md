@@ -7,7 +7,12 @@
 * **Version:** 0.0.1-SNAPSHOT
 
 ## How to run it?
+IDE Main start
+```
+infrastructure/src/main/java/es/orquidea/hexagonal/bootstrap/SpringBootService.java
+```
 
+Command line plugin starter
 ```
 mvn spring-boot:run
 ```
