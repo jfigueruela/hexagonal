@@ -41,7 +41,7 @@
     <modules>
         <module>domain</module>
         <module>application</module>
-        <module>infraestructure</module>
+        <module>infrastructure</module>
     </modules>
 
 <!--    <build>-->
