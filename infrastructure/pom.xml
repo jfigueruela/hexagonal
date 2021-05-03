@@ -9,7 +9,7 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>infraestructure</artifactId>
+    <artifactId>infrastructure</artifactId>
 
     <properties>
         <mapstruct.version>1.4.2.Final</mapstruct.version>
