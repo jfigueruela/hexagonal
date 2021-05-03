@@ -7,14 +7,15 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.UUID;
 
 @Slf4j
 @RequiredArgsConstructor
 public class UserService {
     private final UserRepository userRepository;
 
-    public User getUser(Long id) {
+    public User getUser(String id) {
+
         User user = userRepository.findById(id);
         if (user == null) {
             throw new ResourceNotFoundException();
@@ -28,10 +29,17 @@ public class UserService {
 
     public User saveUser(User user) {
         log.debug("Storing User [{}]", user);
+        user.setId(UUID.randomUUID().toString());
         return userRepository.save(user);
     }
 
-    public void deleteUser(Long id) {
+    public void deleteUser(String id) {
         userRepository.delete(getUser(id));
+    }
+
+    public User updateUser(String id, User user) {
+        log.debug("Updating user with id [{}]", id);
+        user.setId(id);
+        return userRepository.save(user);
     }
 }

@@ -5,11 +5,8 @@ import es.orquidea.hexagonal.model.User;
 import java.util.List;
 
 public interface UserRepository {
-    //Get
-    User findById(Long id);
+    User findById(String id);
     List<User> getAll();
-    //Post
     User save(User user);
-    //Delete
     void delete(User user);
 }

@@ -26,6 +26,8 @@ Get - http://localhost:8080/users
 
 Post - http://localhost:8080/users
 
+Patch - http://localhost:8080/users
+
 Delete - http://localhost:8080/users/user/{userId}
 ```
 

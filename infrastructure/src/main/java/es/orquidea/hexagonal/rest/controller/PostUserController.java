@@ -18,10 +18,12 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class PostUserController {
 
+    public static final String POST_USER_URL = "user";
+
     private final UserService userService;
     private final UserMapper userMapper;
 
-    @PostMapping("users")
+    @PostMapping(POST_USER_URL)
     public ResponseEntity<UserDto> createUser(@Valid @RequestBody UserDto userDto) {
         return new ResponseEntity<>(userMapper.toDto(userService.saveUser(userMapper.toDomain(userDto))),
                 HttpStatus.CREATED);

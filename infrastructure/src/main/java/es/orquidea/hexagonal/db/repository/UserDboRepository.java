@@ -7,32 +7,34 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 
 @Service
 @RequiredArgsConstructor
 public class UserDboRepository implements UserRepository {
 
-    private final SpringDataUserRepository userRepository;
+    private final SpringDataUserRepository springDataUserRepository;
     private final UserEntityMapper userMapper;
 
     @Override
-    public User findById(Long id) {
-        return userMapper.toDomain(userRepository.findById(id).get());
+    public User findById(String id) {
+        return userMapper.toDomain(springDataUserRepository.findById(id).get());
     }
 
     @Override
     public List<User> getAll() {
-         return userMapper.toDomain(userRepository.findAll());
+        return userMapper.toDomain(springDataUserRepository.findAll());
     }
 
     @Override
     public User save(User user) {
-        return userMapper.toDomain(userRepository.save(userMapper.toDbo(user)));
+        return userMapper.toDomain(springDataUserRepository.save(userMapper.toDbo(user)));
     }
 
     @Override
     public void delete(User user) {
-        userRepository.delete(userMapper.toDbo(user));
+        springDataUserRepository.delete(userMapper.toDbo(user));
     }
+
 }
