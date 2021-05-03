@@ -37,7 +37,7 @@ public class PostUserControllerIntegrationTest {
     private MockMvc mvc;
 
     @Test
-    public void perform_post_user() throws Exception {
+    public void perform_post_user_201() throws Exception {
 
         //Given
         User user = UserTestBuilder.builder().build().toUser();
@@ -57,5 +57,37 @@ public class PostUserControllerIntegrationTest {
                 .andExpect(jsonPath("$.email").value(UserDtoTestBuilder.EMAIL_VALUE));
     }
 
+    @Test
+    public void perform_post_user_400_error_no_name() throws Exception {
+        mvc.perform(post("/"+PostUserController.POST_USER_URL)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(UserDtoTestBuilder.builder().name(null).build().toUserDtoJsonString())
+                .accept(MediaType.APPLICATION_JSON)
+        ).andDo(print())
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.name").value("Name is mandatory"));
+    }
+
+    @Test
+    public void perform_post_user_400_error_no_email() throws Exception {
+        mvc.perform(post("/"+PostUserController.POST_USER_URL)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(UserDtoTestBuilder.builder().email(null).build().toUserDtoJsonString())
+                .accept(MediaType.APPLICATION_JSON)
+        ).andDo(print())
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.email").value("Email is mandatory"));
+    }
+
+    @Test
+    public void perform_post_user_400_error_invalid_email() throws Exception {
+        mvc.perform(post("/"+PostUserController.POST_USER_URL)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(UserDtoTestBuilder.builder().email("xxxxxxx").build().toUserDtoJsonString())
+                .accept(MediaType.APPLICATION_JSON)
+        ).andDo(print())
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.email").value("must be a well-formed email address"));
+    }
 
 }
