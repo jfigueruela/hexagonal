@@ -5,6 +5,9 @@ target/
 !**/src/test/**/target/
 .mvn
 
+*.trc
+*.txt
+
 ### STS ###
 .apt_generated
 .classpath

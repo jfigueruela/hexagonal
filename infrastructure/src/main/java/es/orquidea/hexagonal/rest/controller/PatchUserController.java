@@ -17,10 +17,12 @@ import javax.validation.Valid;
 @RequiredArgsConstructor
 public class PatchUserController {
 
+    public static final String PATCH_USER_URL = "users/user/{id}";
+
     private final UserService userService;
     private final UserMapper userMapper;
 
-    @PatchMapping("users/user/{id}")
+    @PatchMapping(PATCH_USER_URL)
     public ResponseEntity<UserDto> updateUser(@Valid @RequestBody UserDto userDto, @PathVariable String id) {
         return new ResponseEntity<>(userMapper.toDto(userService.updateUser(id,userMapper.toDomain(userDto))),
                 HttpStatus.OK);

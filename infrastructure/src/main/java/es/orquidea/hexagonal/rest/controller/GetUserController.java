@@ -1,8 +1,8 @@
 package es.orquidea.hexagonal.rest.controller;
 
-import es.orquidea.hexagonal.service.UserService;
 import es.orquidea.hexagonal.rest.dto.UserDto;
 import es.orquidea.hexagonal.rest.mapper.UserMapper;
+import es.orquidea.hexagonal.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -17,6 +17,9 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 public class GetUserController {
+
+    public static final String GET_USER_BY_ID_URL = "users/user/{id}";
+    public static final String GET_USERS_URL = "users";
 
     private final UserService userService;
     private final UserMapper userMapper;

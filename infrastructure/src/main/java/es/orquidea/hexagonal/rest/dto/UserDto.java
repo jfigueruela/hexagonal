@@ -12,6 +12,10 @@ import javax.validation.constraints.NotBlank;
 @NoArgsConstructor
 public class UserDto {
 
+    public static final String ID_FIELD = "id";
+    public static final String NAME_FIELD = "name";
+    public static final String EMAIL_FIELD = "email";
+
     private String id;
 
     @NotBlank(message = "Name is mandatory")

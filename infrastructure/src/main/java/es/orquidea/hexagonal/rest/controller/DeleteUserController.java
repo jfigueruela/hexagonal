@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class DeleteUserController {
 
+    public static final String DELETE_USER_URL = "users/user/{id}";
+
     private final UserService userService;
 
-    @DeleteMapping("users/user/{id}")
+    @DeleteMapping(DELETE_USER_URL)
     public ResponseEntity<?> deleteUserById(@PathVariable String id) {
         userService.deleteUser(id);
         return ResponseEntity.status(HttpStatus.OK).build();
