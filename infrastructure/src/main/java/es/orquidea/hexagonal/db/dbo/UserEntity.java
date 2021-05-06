@@ -1,16 +1,15 @@
 package es.orquidea.hexagonal.db.dbo;
 
 import lombok.*;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Getter
 @Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@Document(collection = "users")
 public class UserEntity {
     @Id
     private String id;
