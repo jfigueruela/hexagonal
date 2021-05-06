@@ -9,6 +9,7 @@
 ## How to run it?
 IDE Main start
 ```
+Run first 'docker-compose up' command in local-resources directory to start images
 infrastructure/src/main/java/es/orquidea/hexagonal/bootstrap/SpringBootService.java
 ```
 
@@ -36,3 +37,4 @@ Delete - http://localhost:8080/users/user/{userId}
 * [Hexagonal Architecture (jmgarridopaz)](https://jmgarridopaz.github.io/content/hexagonalarchitecture.html#tc2-6)
 * [Validation Spring Boot](https://www.baeldung.com/spring-boot-bean-validation)
 * [Slf4j Config](https://mkyong.com/spring-boot/spring-boot-slf4j-logging-example/)
+* [MongoDB embedded for Integration Test](https://www.baeldung.com/spring-boot-embedded-mongodb)
