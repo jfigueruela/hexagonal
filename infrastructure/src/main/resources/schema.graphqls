@@ -1,0 +1,15 @@
+type User {
+    id: ID!
+    name: String!
+    email: String!
+}
+
+# The Root Query for the application
+type Query {
+    userById(id:String): User
+}
+
+# Mutation: to add entities
+type Mutation {
+    addUser(name: String!, email: String!): User!
+}
