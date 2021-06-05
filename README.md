@@ -64,6 +64,7 @@ Query example
 * [Validation Spring Boot](https://www.baeldung.com/spring-boot-bean-validation)
 * [Slf4j Config](https://mkyong.com/spring-boot/spring-boot-slf4j-logging-example/)
 * [MongoDB embedded for Integration Test](https://www.baeldung.com/spring-boot-embedded-mongodb)
+* [GraphQL](https://graphql.org/)
 * [GraphQL Essentials example and UI](https://medium.com/@md.ali.azam/graphql-api-server-using-spring-boot-jpa-41ac1f6ad1c)
 * [GraphQL Postman integration](https://learning.postman.com/docs/sending-requests/supported-api-frameworks/graphql/)
 
