@@ -13,6 +13,7 @@
 
     <properties>
         <mapstruct.version>1.4.2.Final</mapstruct.version>
+        <com.graphql-java-kickstart.version>7.0.1</com.graphql-java-kickstart.version>
     </properties>
 
     <dependencies>
@@ -106,6 +107,21 @@
             <groupId>de.flapdoodle.embed</groupId>
             <artifactId>de.flapdoodle.embed.mongo</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <!-- GraphQL lib-->
+        <dependency>
+            <groupId>com.graphql-java-kickstart</groupId>
+            <artifactId>graphql-spring-boot-starter</artifactId>
+            <version>${com.graphql-java-kickstart.version}</version>
+        </dependency>
+
+        <!-- GraphQL UI lib-->
+        <dependency>
+            <groupId>com.graphql-java-kickstart</groupId>
+            <artifactId>graphiql-spring-boot-starter</artifactId>
+            <version>${com.graphql-java-kickstart.version}</version>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 
